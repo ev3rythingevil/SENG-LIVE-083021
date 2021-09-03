@@ -30,3 +30,66 @@ const pokemons = [
     likes: 11,
   },
 ];
+
+
+// document.getElementById()
+// accepts ID as argument
+// returns FIRST match
+// ID must be unique otherwise you done fucked up
+// when selecting elements, store it in a variable
+// const pokeForm = document.getElementById('poke-form'); 
+
+
+// document.getElementsByClassName(className);
+// returns multiple elements
+// const label - document.getElementsById('form-label'); 
+// returns multiple elements as an htmlCollection
+// htmlCollection = looks like an array but isnt
+// can be converted with array.from
+
+// document.querySelector()
+// accepts different selectors: id, class, tags
+// returns first matching value, single elements only
+// const goalsDiv = document.querySelector('#lecture-goals');
+
+
+// document.querySelectorAll()
+// also returns a collection that matches the selector
+// querySelector allows you to use .forEach method on its HTMLCollection
+
+//pokemons.forEach( pokemon =>{
+//   renderPokemon(pokemon);
+//});
+
+ pokemons.forEach(renderPokemon);
+
+function renderPokemon(pokemon){
+  console.log(pokemon);
+
+
+// document.createElement() <= use dis cause it makes nodes
+// .innerHTML (can cause security issues)
+   // only makes strings instead of nodez
+
+// create a divvv
+ const pokeCard = document.createElement('div');
+
+ pokeCard.className = 'poke-card';
+ console.log(pokeCard);
+
+const pokeContainer = document.querySelector('#poke-container');
+
+const pokeImg = document.createElement('img')
+pokeImg.src = pokemon.img;
+pokeCard.appendChild(pokeImg);
+pokeContainer.appendChild(pokeCard);
+}
+
+
+const header = document.querySelector('#header');
+header.innerHTML = `<img id="header-img"
+src="https://external-preview.redd.it/tQged7mKJ3cUpNMq5IMeceZvyKP3cTyHqhNmKEQ0Vv8.png?auto=webp&s=fb5fd61cae0bc9cde2bc2a006b1e2aeb0c935ce9"
+/>`
+
+const lectureGoals = document.querySelector('#lecture-goals');
+lectureGoals.remove()
